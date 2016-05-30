@@ -88,6 +88,7 @@ namespace NgcookingBackend.Models
 
         public void Update(int id, Communaute communaute)
         {
+
             var updateContact = Context.Communautes.Single(x => x.Id == id);
 
             updateContact.Firstname = communaute.Firstname;
@@ -100,7 +101,8 @@ namespace NgcookingBackend.Models
             updateContact.Password = communaute.Password;
             updateContact.Picture = communaute.Picture;
 
-            Context.SaveChanges();  
+            Context.SaveChanges(); 
+             
               
         }
 

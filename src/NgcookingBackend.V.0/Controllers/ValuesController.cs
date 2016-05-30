@@ -18,23 +18,31 @@ namespace NgcookingBackend.V._0.Controllers
               _communautesRepository = communautesRepository;
 
         }
-
          
         // GET: api/values
-        [HttpGet("api/communautes")]
+        //[HttpGet("api/communautes")]
         public JsonResult Get()
-        {
-            
+        {     
             return Json(_communautesRepository.GetCommunautes());
         }
-       
 
+        /*
         //GET api/values/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
         }
+        */
+        //GET api/values/5
+       // [HttpGet("{id}")]
+
+        //[HttpGet("api/communautes/{id}")]
+        public JsonResult Get(string id)
+        {
+            return Json(_communautesRepository.GetCommunauteById(int.Parse(id)));
+        }
+
 
         //POST api/values
         [HttpPost]
