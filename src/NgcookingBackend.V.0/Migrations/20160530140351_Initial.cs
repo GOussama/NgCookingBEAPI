@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Data.Entity.Migrations;
+using Microsoft.Data.Entity.Metadata;
 
 namespace NgcookingBackend.V._0.Migrations
 {
@@ -12,7 +13,8 @@ namespace NgcookingBackend.V._0.Migrations
                 name: "NgcookingBackend.Models.Communautes",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Bio = table.Column<string>(nullable: true),
                     Birth = table.Column<DateTime>(nullable: false),
                     City = table.Column<string>(nullable: true),
@@ -31,9 +33,10 @@ namespace NgcookingBackend.V._0.Migrations
                 name: "NgcookingBackend.Models.Recettes",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Calories = table.Column<int>(nullable: false),
-                    CommunauteId = table.Column<Guid>(nullable: true),
+                    CommunauteId = table.Column<int>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     Picture = table.Column<string>(nullable: true)
                 },

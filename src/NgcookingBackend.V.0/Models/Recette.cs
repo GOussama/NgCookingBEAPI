@@ -14,13 +14,12 @@ namespace NgcookingBackend.Models
         public Recette(string name,int calories,string picture)
         {
             Name = name;
-            Id = System.Guid.NewGuid();
             Calories = calories;
             Picture = picture;
         }
 
         public string Name { get; set; }
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public int Calories { get; set; }
         public string Picture { get; set; }
     }

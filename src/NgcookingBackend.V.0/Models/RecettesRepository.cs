@@ -16,18 +16,18 @@ namespace NgcookingBackend.Models
             Context = context;
         }
 
-        public bool RecetteExists(Guid id)
+        public bool RecetteExists(int id)
         {   
             return Context.Recettes.Select(x => x.Id == id).ToList().Count <= 1;
         }
 
-        public void Delete(Guid id)
+        public void Delete(int id)
         {
             Context.Recettes.Remove(Context.Recettes.Single(x => x.Id == id));
             Context.SaveChanges();
         }
 
-        public Recette GetRecetteById(Guid id)
+        public Recette GetRecetteById(int id)
         {
             return Context.Recettes.Single(x => x.Id == id);
         }
@@ -42,7 +42,7 @@ namespace NgcookingBackend.Models
             return Context.Recettes.AsEnumerable();
         }
 
-        public Guid Insert(Recette recette)
+        public int Insert(Recette recette)
         {
 
             Context.Recettes.Add(recette);
@@ -62,7 +62,7 @@ namespace NgcookingBackend.Models
             throw new NotImplementedException();
         }
 
-        public void Update(Guid id, Recette recette)
+        public void Update(int id, Recette recette)
         {
             var updateRecette = Context.Recettes.Single((x => x.Id == id));
 
@@ -101,30 +101,12 @@ namespace NgcookingBackend.Models
         {
             throw new NotImplementedException();
         }
-
-        public bool RecetteExists(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Recette GetRecetteById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
+      
         long IRecetteRepository.Insert(Recette recette)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(int id, Recette recette)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

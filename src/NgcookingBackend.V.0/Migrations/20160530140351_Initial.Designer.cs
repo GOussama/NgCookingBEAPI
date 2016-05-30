@@ -8,7 +8,7 @@ using NgcookingBackend.Models;
 namespace NgcookingBackend.V._0.Migrations
 {
     [DbContext(typeof(ModelContext))]
-    [Migration("20160527123911_Initial")]
+    [Migration("20160530140351_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,7 +19,7 @@ namespace NgcookingBackend.V._0.Migrations
 
             modelBuilder.Entity("NgcookingBackend.Models.Communaute", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Bio");
@@ -47,12 +47,12 @@ namespace NgcookingBackend.V._0.Migrations
 
             modelBuilder.Entity("NgcookingBackend.Models.Recette", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("Calories");
 
-                    b.Property<Guid?>("CommunauteId");
+                    b.Property<int?>("CommunauteId");
 
                     b.Property<string>("Name");
 

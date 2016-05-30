@@ -24,12 +24,11 @@ namespace NgcookingBackend.Models
             Birth = birth;
             Bio = bio;
             Recettes = recettes;
-            Id = System.Guid.NewGuid();
         }
 
         public string Firstname { get; set; }
         public string Surname { get; set; }
-        public System.Guid Id { get; set; }
+        public int Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public int Level { get; set; }
@@ -38,5 +37,6 @@ namespace NgcookingBackend.Models
         public DateTime Birth { get; set; }
         public string Bio { get; set; }
         public ICollection<Recette> Recettes { get; set; }
+
     }
 }

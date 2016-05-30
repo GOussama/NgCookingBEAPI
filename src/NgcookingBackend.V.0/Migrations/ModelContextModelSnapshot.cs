@@ -18,7 +18,7 @@ namespace NgcookingBackend.V._0.Migrations
 
             modelBuilder.Entity("NgcookingBackend.Models.Communaute", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Bio");
@@ -46,12 +46,12 @@ namespace NgcookingBackend.V._0.Migrations
 
             modelBuilder.Entity("NgcookingBackend.Models.Recette", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("Calories");
 
-                    b.Property<Guid?>("CommunauteId");
+                    b.Property<int?>("CommunauteId");
 
                     b.Property<string>("Name");
 

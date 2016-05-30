@@ -21,7 +21,7 @@ namespace NgcookingBackend.Models
             return Context.Communautes.Select(x => x.Email == email).ToList().Count >= 1;
         }
 
-        public void Delete(Guid id)
+        public void Delete(int id)
         {
             Context.Communautes.Remove(Context.Communautes.Single(x=>x.Id == id));
             Context.SaveChanges();
@@ -40,7 +40,7 @@ namespace NgcookingBackend.Models
             return Context.Communautes.Single(x=>x.Email == email);
         }
 
-        public Communaute GetCommunauteById(Guid id)
+        public Communaute GetCommunauteById(int id)
         {
             return Context.Communautes.Single(x=>x.Id == id);
         }
@@ -50,7 +50,7 @@ namespace NgcookingBackend.Models
             return Context.Communautes.ToList().Count;
         }
 
-        public Guid Insert(Communaute communaute)
+        public int Insert(Communaute communaute)
         {
             Context.Communautes.Add(communaute);
             Context.SaveChanges();
@@ -86,7 +86,7 @@ namespace NgcookingBackend.Models
 
         }
 
-        public void Update(Guid id, Communaute communaute)
+        public void Update(int id, Communaute communaute)
         {
             var updateContact = Context.Communautes.Single(x => x.Id == id);
 
@@ -144,24 +144,11 @@ namespace NgcookingBackend.Models
             throw new NotImplementedException();
         }
 
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Communaute GetCommunauteById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         long ICommunautesRepository.Insert(Communaute communaute)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(int id, Communaute communaute)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
