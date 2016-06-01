@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NgcookingBackend.Models
+namespace NgcookingBackend.Modelss
 {
     public class Recette //: BaseEntity
     {

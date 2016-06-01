@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using NgcookingBackend.Models;
 
+
 namespace NgcookingBackend.V._0.Controllers
 {
    //[Route("api/[controller]")]
@@ -12,18 +13,22 @@ namespace NgcookingBackend.V._0.Controllers
     {
 
         ICommunautesRepository _communautesRepository { get; set; }
+       
+
 
         public ValuesController(ICommunautesRepository communautesRepository)
         {
-              _communautesRepository = communautesRepository;
-
+            _communautesRepository = communautesRepository;
+           
         }
-         
+        
+       
         // GET: api/values
         //[HttpGet("api/communautes")]
         public JsonResult Get()
-        {     
-            return Json(_communautesRepository.GetCommunautes());
+        {
+            //return Json(_communautesRepository.GetCommunautes());
+            return Json(_communautesRepository.GetAll());
         }
 
         /*

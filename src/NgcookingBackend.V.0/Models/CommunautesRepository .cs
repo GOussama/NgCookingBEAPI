@@ -16,7 +16,7 @@ namespace NgcookingBackend.Models
             Context = context;
         }
 
-        public bool CommunuateExists(string email)
+        public bool CommunauteExists(string email)
         {
             return Context.Communautes.Select(x => x.Email == email).ToList().Count >= 1;
         }

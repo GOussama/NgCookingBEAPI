@@ -1,5 +1,4 @@
 ﻿using Microsoft.Data.Entity;
-using NgcookingBackend.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,56 +7,51 @@ using System.Linq.Expressions;
 
 namespace NgcookingBackend.Models
 {
-    public class GenericRepository<C, T> : IGenericRepository<T>, IDisposable
-        where T : class
-        where C : DbContext, new()
-
+    public class GenericRepository<TType, TContext> : IRepository<TType>
+        where TContext : DbContext, new()
+        where TType : BaseEntity
     {
 
-        private C _entities = new C();
+        private readonly TContext _entity = new TContext();
 
-        public C Context
+        protected TContext Context
         {
-            get { return _entities; }
-            set { _entities = value; }
-        }
-        public void Add(T entity)
-        {
-            _entities.Set<T>().Add(entity);
+            get { return this._entity; }
         }
 
-        public void Delete(T entity)
+        /*
+        protected string GetEntitySetName(string entityTypeName)
         {
-            _entities.Set<T>().Remove(entity);
+            return this._entity.
+        }
+        */
+        public TType Add(TType entity)
+        {
+
+            this._entity.Add(entity); 
+            this._entity.SaveChanges();
+
+            return entity;
         }
 
-        public void Dispose()
+        public bool Delete(TType entity)
         {
-            Context.Dispose();
+            throw new NotImplementedException();
         }
 
-        public void Edit(T entity)
+        public TType Get(Expression<Func<TType, bool>> filter)
         {
-           // _entities.Entry(entity).State = System.Data.
+            throw new NotImplementedException();
         }
 
-        public IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)
+        public ICollection<TType> GetAll()
         {
-            IQueryable<T> query = _entities.Set<T>().Where(predicate);
-            return query;
+            throw new NotImplementedException();
         }
 
-        public IQueryable<T> GetAll()
-        {
-            IQueryable<T> query = _entities.Set<T>();
-            return query;
-        }
-
-        public void Save()
+        public bool Update(TType entity)
         {
             throw new NotImplementedException();
         }
     }
-
-   
 }

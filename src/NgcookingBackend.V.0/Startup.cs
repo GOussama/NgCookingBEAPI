@@ -35,6 +35,10 @@ namespace NgcookingBackend.V._0
             services.AddSingleton<ICommunautesRepository, CommunautesRepository>();
             services.AddSingleton<IRecetteRepository, RecetteRepository>();
 
+            //services.AddSingleton<IGenericRepository<Communaute>, GenericRepository<ModelContext,Communaute>();
+           // services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+
             services.AddEntityFramework().AddSqlServer().AddDbContext<ModelContext>(options =>
             {
                 options.UseSqlServer(Configuration["Data:ConnectionString"]);

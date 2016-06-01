@@ -21,13 +21,11 @@ namespace NgcookingBackend.V._0.Controllers
             _communautesRepository = communautesRepository;
         }
 
-
         [HttpGet()]
         public JsonResult Get()
         {
             return Json(_communautesRepository.GetCommunautes());
         }
-
 
         [HttpGet("{id}")]
         public JsonResult Get(string id)

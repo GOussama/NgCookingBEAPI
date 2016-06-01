@@ -10,6 +10,6 @@ namespace NgcookingBackend.Models
         public Int64 ID { get; set; }
         public DateTime AddedDate { get; set; }
         public DateTime ModifiesDate { get; set; }
-        public string IP { get;  set;}
+     
     }
 }
